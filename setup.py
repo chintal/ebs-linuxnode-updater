@@ -35,7 +35,7 @@ setuptools.setup(
     ],
     entry_points={
           'console_scripts': [
-              'netconfig = ebs.linuxnode.netconfig.server:run_server'
+              'updater = ebs.linuxnode.updater.updater:updater'
           ]
     },
 )

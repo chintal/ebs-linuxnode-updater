@@ -6,7 +6,7 @@ import sys
 from loguru import logger
 
 logging.basicConfig()
-LOG_LEVEL = logging.getLevelName(os.environ.get("LOG_LEVEL", "DEBUG"))
+LOG_LEVEL = logging.getLevelName(os.environ.get("LOG_LEVEL", "INFO"))
 JSON_LOGS = True if os.environ.get("JSON_LOGS", "0") == "1" else False
 
 
@@ -41,7 +41,7 @@ def setup_logging():
     # configure loguru
     logger.configure(handlers=[{"sink": sys.stdout, "serialize": JSON_LOGS}])
     logger.add("/var/log/ebs/updater.log", level="INFO",
-               rotation="1 week", retention="50 days")
+               rotation="1 week")
 
 
 setup_logging()

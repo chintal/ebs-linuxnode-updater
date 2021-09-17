@@ -61,8 +61,7 @@ class PipDomain(UpdaterDomainBase):
             self._execute(['install', '--upgrade', package])
 
         _final_version = self._get_current_version(package)
-        logging.debug("Final version for '{}' : {}"
-                      "".format(package, _final_version))
+        logging.info("'{}' : {}".format(package, _final_version))
         if _final_version != _starting_version:
             logging.info("Upgraded package '{}' from '{}' to '{}'"
                          "".format(package, _starting_version, _final_version))
