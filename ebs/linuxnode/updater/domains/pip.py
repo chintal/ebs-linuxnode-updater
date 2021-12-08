@@ -50,6 +50,11 @@ class PipDomain(UpdaterDomainBase):
         return getattr(self._config, package).get('version', 'latest')
 
     def _update_package(self, package):
+        # TODO Remove this when ready for deployment.
+        if package != "ebs-linuxnode-updater":
+            logging.info("Skipping '{}' package '{}' for update check."
+                         "".format(self._name, package))
+            return
         logging.debug("Checking '{}' package '{}' for updates"
                       "".format(self._name, package))
         _starting_version = self._get_current_version(package)
