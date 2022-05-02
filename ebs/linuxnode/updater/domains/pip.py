@@ -39,7 +39,7 @@ class PipDomain(UpdaterDomainBase):
         lines = result.splitlines()
         rv = {}
         for line in lines:
-            key, value = line.decode().split(':')
+            key, value = line.decode().split(':', 1)
             rv[key.strip()] = value.strip()
         return rv
 
