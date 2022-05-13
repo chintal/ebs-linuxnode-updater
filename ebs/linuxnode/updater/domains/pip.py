@@ -51,7 +51,8 @@ class PipDomain(UpdaterDomainBase):
 
     def _update_package(self, package):
         # TODO Remove this when ready for deployment.
-        if package != "ebs-linuxnode-updater":
+        _exclusions = ('infopanel-rsrtc')
+        if package in _exclusions:
             logging.info("Skipping '{}' package '{}' for update check."
                          "".format(self._name, package))
             return
