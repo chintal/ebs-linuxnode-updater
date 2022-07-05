@@ -50,8 +50,7 @@ class PipDomain(UpdaterDomainBase):
         return getattr(self._config, package).get('version', 'latest')
 
     def _update_package(self, package):
-        # TODO Remove this when ready for deployment.
-        _exclusions = ('infopanel-rsrtc')
+        _exclusions = ()
         if package in _exclusions:
             logging.info("Skipping '{}' package '{}' for update check."
                          "".format(self._name, package))
